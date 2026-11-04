@@ -1,0 +1,82 @@
+{
+  "date": "2026-11-05",
+  "purpose": "Execution verification only; no model-quality benchmark",
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Windows",
+    "ultralytics": "8.4.202",
+    "gradio": "6.31.0",
+    "torch": "2.15.0+cpu",
+    "torchvision": "0.29.2+cpu",
+    "huggingface_hub": "1.33.0",
+    "PyYAML": "6.0.3"
+  },
+  "unit_tests": {
+    "passed": 11,
+    "command": "python -m unittest discover -s tests -v"
+  },
+  "dataset_audit": {
+    "images": 1331,
+    "cross_split_exact_duplicate_groups": 0,
+    "cross_split_source_name_overlaps": 129
+  },
+  "regrouped_split": {
+    "counts": {
+      "train": 925,
+      "val": 273,
+      "test": 133
+    },
+    "groups": 137,
+    "cross_split_exact_duplicate_groups": 0,
+    "cross_split_source_name_overlaps": 0,
+    "limitation": "Source-name grouping cannot guarantee specimen-level independence. Synthetic variants with different names may remain related. This split is not the official RF100 benchmark split."
+  },
+  "training_execution": {
+    "images": {
+      "train": 4,
+      "val": 2,
+      "test": 2
+    },
+    "epochs": 1,
+    "imgsz": 128,
+    "batch": 2,
+    "device": "cpu",
+    "seed": 42,
+    "baseline": {
+      "total": 3138732,
+      "trainable": 3138716
+    },
+    "frozen_first_10_modules": {
+      "total": 3138732,
+      "trainable": 1866060
+    },
+    "checkpoint_and_metadata_saved": true
+  },
+  "integration_checks": {
+    "standard_evaluation_json": "passed",
+    "fixed_threshold_csv_and_metadata": "passed",
+    "gradio_real_image_inference": "passed",
+    "rgb_output_dimensions": "passed",
+    "missing_image_error": "passed",
+    "localhost_http_response": 200,
+    "demo_stopped_after_check": true
+  },
+  "not_verified": [
+    "full-dataset model training and accuracy",
+    "CUDA execution",
+    "interrupted checkpoint resume",
+    "specimen-level independence",
+    "clinical or laboratory suitability"
+  ],
+  "trained_checkpoint_distributed": false,
+  "source_sha256": {
+    "app.py": "eed37fb2cbd55c9c79842c4b60201c0a30fcc3336ae3c16c7524b74c882ca5da",
+    "data_utils.py": "04daf3a89a14720ab22b5cd0b26db06617b693a4aab3155e301264ae201f25fc",
+    "detection_metrics.py": "4acf2a0f559ccdb75af07361cc2ef44055e3c0e77c0e3a7622edf6ac86b45b65",
+    "evaluate.py": "86acd01970320734b080627d3bb8884fe5de67bc70f13e65cdb2af11c981fae3",
+    "make_grouped_split.py": "e55a908ff203d4079b2982f23fce3f528d953e03864c6249c692aab9296fc673",
+    "prepare_data.py": "b6022d9173b77dd64e6330ac1a9382fb3996b7a0ad56060c9a58b5b65de03da8",
+    "threshold_sweep.py": "73dee2ffd852c11751b8a61411709f2422b408f5a3be9ccbf3edd43ab4b9eea0",
+    "train.py": "735f4bd28ff22b13708b19b75dad45e52404282f20fe67f80082758bddeaedd4"
+  }
+}

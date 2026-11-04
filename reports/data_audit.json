@@ -1,0 +1,627 @@
+{
+  "splits": {
+    "train": {
+      "images": 932,
+      "empty_labels": 13,
+      "instances": {
+        "thick-dark-mark": 1235,
+        "thick-light-mark": 4085,
+        "thin-dark-mark": 683,
+        "thin-light-mark": 560
+      }
+    },
+    "val": {
+      "images": 266,
+      "empty_labels": 2,
+      "instances": {
+        "thick-dark-mark": 310,
+        "thick-light-mark": 1155,
+        "thin-dark-mark": 138,
+        "thin-light-mark": 168
+      }
+    },
+    "test": {
+      "images": 133,
+      "empty_labels": 1,
+      "instances": {
+        "thick-dark-mark": 207,
+        "thick-light-mark": 671,
+        "thin-dark-mark": 150,
+        "thin-light-mark": 89
+      }
+    }
+  },
+  "cross_split_exact_duplicates": [],
+  "cross_split_source_name_overlaps": {
+    "pc450BP0006_synt1_jpg": [
+      "test",
+      "train"
+    ],
+    "pc450BP0006_synt2_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450BP0006_synt_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450BP0011synt1_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450BP0011synt2_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450BP0011synt_jpg": [
+      "test",
+      "train"
+    ],
+    "pc450BP0027synt1_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450BP0027synt2_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450BP0027synt_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450BP0030synt1_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450BP0030synt2_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450BP0030synt_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450BP0040_synt1_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450BP0040_synt2_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450BP0040_synt_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450BP0049synt1_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450BP0049synt2_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450BP0049synt_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450BP0055_synt1_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450BP0055_synt2_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450BP0055_synt3_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450BP0055_synt_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450BP0058-synt1_jpg": [
+      "test",
+      "train"
+    ],
+    "pc450BP0058-synt2_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450BP0058-synt_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-040_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-041_jpg": [
+      "test",
+      "train"
+    ],
+    "pc450newF-042_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-043_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-045_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-046_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-047_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-048_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-049_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-050_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-051_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-051a_jpg": [
+      "test",
+      "train"
+    ],
+    "pc450newF-051b_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-052_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-054_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-055_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-056_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-057_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-058_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-059_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-060_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-061_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-062_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-063_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-064_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-065_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-066_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-067_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-068_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-069_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-070_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-071_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-072_jpg": [
+      "test",
+      "train"
+    ],
+    "pc450newF-073_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-074_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-075_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-076_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-077_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-078_jpg": [
+      "test",
+      "train"
+    ],
+    "pc450newF-079_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-080_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-081_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-082_jpg": [
+      "test",
+      "train"
+    ],
+    "pc450newF-083_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-084_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-085_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-086_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-087_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-088_jpg": [
+      "test",
+      "train"
+    ],
+    "pc450newF-089_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-090_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-091_jpg": [
+      "test",
+      "train"
+    ],
+    "pc450newF-092_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-094_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-095_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-096_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-097_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-098_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-099_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-101_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-102_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-103_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-104_jpg": [
+      "test",
+      "train"
+    ],
+    "pc450newF-105_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-108_jpg": [
+      "test",
+      "train"
+    ],
+    "pc450newF-109_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-110_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-112_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-113_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-114_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-115_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-116_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-122_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-125_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-126_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-127_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-130_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-131_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-142_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-143_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-145_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-146_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-147_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-149_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-157_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-158_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-161_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-168_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-169_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-170_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-172_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-177_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-178_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-181_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-182_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-184_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-187_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-190_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-194_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-197_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-198_jpg": [
+      "train",
+      "val"
+    ],
+    "pc450newF-199_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-204_jpg": [
+      "test",
+      "train",
+      "val"
+    ],
+    "pc450newF-205_jpg": [
+      "test",
+      "train",
+      "val"
+    ]
+  },
+  "note": "Name overlap is a leakage warning, not proof of identical images. Hash checks do not detect resized or augmented copies.",
+  "dataset": "Libre-YOLO/asbestos",
+  "revision": "24d72f5484922bf95281cd9a6a9ef84760cd3d0c"
+}
