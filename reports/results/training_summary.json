@@ -1,0 +1,18 @@
+{
+  "source": "Ultralytics results.csv in each Colab run folder (asbestos_runs/grouped and asbestos_runs/official)",
+  "grouped": {
+    "epochs_completed": 100,
+    "best_epoch": 100,
+    "train_seconds": 1767.85,
+    "final_val_map50": 0.61452,
+    "final_val_map50_95": 0.42608
+  },
+  "official": {
+    "epochs_completed": 100,
+    "best_epoch": 100,
+    "train_seconds": 1817.12,
+    "final_val_map50": 0.60935,
+    "final_val_map50_95": 0.41521
+  },
+  "note": "Validation scores here come from the training loop. evaluate.py measures validation slightly differently (grouped model: 0.600 mAP50), so compare like with like."
+}

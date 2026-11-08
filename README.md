@@ -5,6 +5,11 @@ images, plus the checks needed to trust its numbers: a dataset audit that found
 train/test leakage in the public benchmark, a leakage-reduced split, two kinds of
 evaluation and a local review demo.
 
+**Result:** 0.495 test mAP50 (0.328 mAP50-95) on the leakage-reduced split. The
+official split scores 0.622, but both models score about 0.61 on validation,
+which suggests most of that gap comes from a harder grouped test set rather than
+leakage. See [Results](#results).
+
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sp-ankitprajapati/asbestos-fiber-detection/blob/main/notebooks/train_colab.ipynb)
 
 > The labels **thick-dark**, **thick-light**, **thin-dark** and **thin-light**
@@ -81,24 +86,68 @@ classes, which is why evaluation reports AP per class, not only an average.
 
 ## Results
 
-**Pending full training.** No model has been fully trained yet, so there are no
-accuracy numbers to report. The [training notebook](notebooks/train_colab.ipynb)
-runs the whole experiment on a free Colab or Kaggle GPU and produces these:
+Both models were trained with the same settings (YOLOv8n from COCO weights,
+100 epochs, batch 8, AdamW, seed 42) using the
+[training notebook](notebooks/train_colab.ipynb) on Google Colab. Each run took
+about 30 minutes. Both ran all 100 epochs and the last epoch was the best, so a
+longer schedule might add a little.
 
 | Trained and tested on | Test mAP50 | Test mAP50-95 |
 | --- | --- | --- |
-| Grouped split (main result) | pending | pending |
-| Official RF100 split (comparison) | pending | pending |
+| Grouped split (main result) | **0.495** | **0.328** |
+| Official RF100 split (comparison) | 0.622 | 0.406 |
 
-Each number belongs with its evaluation file in `reports/results/`, which
-records the checkpoint hash, dataset revision, split and settings.
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/per_class_ap_dark.png">
+  <img src="assets/per_class_ap.png" width="720" alt="Test AP50 by class, grouped vs official: thick-dark 0.77 vs 0.85; thick-light 0.64 vs 0.67; thin-dark 0.27 vs 0.63; thin-light 0.30 vs 0.34.">
+</picture>
 
-**What has been checked so far.** A [one-epoch CPU run](reports/verification.json)
-on a tiny subset (4 training images) at commit `f324361` exercised baseline and
-frozen-backbone training, evaluation export, the threshold sweep and the demo end
-to end. That run checks that the code works, not how accurate the model is. The demo's color handling has been
-fixed since (see design decisions); unit tests cover that fix, but the end-to-end
-demo check has not been re-run. All 12 unit tests pass.
+**What the gap means.** The official split scores 0.127 higher in mAP50, but
+that is not a clean measure of leakage:
+
+- On validation data the two models score almost the same: 0.615 (grouped) and
+  0.609 (official) mAP50 at the end of training
+  ([summary](reports/results/training_summary.json)). The official validation
+  set also shares 117 source names with training, so if leakage inflated scores
+  strongly, its validation score should be clearly higher. It is not.
+- The grouped model scores 0.105 lower on its own test set than on its
+  validation set (0.495 vs 0.600 with `evaluate.py`). Whole source groups move
+  together, so one 133-image test set can be much harder than another.
+- Thin-dark marks show the same pattern: 0.27 AP50 on the grouped test set, but
+  0.58 on grouped validation and 0.63 on the official test set.
+- Thin-light marks, the rarest class, score low on every set (0.30–0.35 AP50).
+
+The leakage itself is real: 83 test source names also appear in training. But
+these runs suggest it is not the main reason for the score gap. Measuring its
+effect directly needs one model evaluated on two parts of the same test set (see
+Limitations).
+
+**Choosing a review threshold.** Fixed-threshold results for the grouped model
+on validation data (273 images, 1,912 labeled marks), from
+[`grouped_val_thresholds.csv`](reports/results/grouped_val_thresholds.csv):
+
+| Confidence | Precision | Recall | F1 |
+| --- | --- | --- | --- |
+| 0.10 | 0.45 | 0.68 | 0.54 |
+| 0.25 | 0.63 | 0.61 | 0.62 |
+| 0.40 | 0.74 | 0.54 | 0.62 |
+| 0.50 | 0.79 | 0.48 | 0.60 |
+| 0.60 | 0.84 | 0.42 | 0.56 |
+| 0.75 | 0.92 | 0.29 | 0.44 |
+
+At 0.25 the model finds 61% of the marks, and 63% of its flags are correct.
+Raising the threshold makes flags more reliable but misses more marks. When the
+tool points a reviewer to marks, a missed mark usually costs more than an extra
+look, so 0.25 is a sensible starting point.
+
+**How these results were produced.** Each evaluation file in `reports/results/`
+records the checkpoint hash, data config hash, split and settings;
+`grouped.metadata.json` and `official.metadata.json` hold the full training
+settings and library versions. An earlier
+[one-epoch CPU run](reports/verification.json) on a tiny subset at commit
+`f324361` checked training, evaluation, the threshold sweep and the demo end to
+end. The demo's color handling was fixed afterwards; unit tests cover the fix,
+but the demo has not yet been run with the trained model. All 12 unit tests pass.
 
 ## Run it
 
@@ -196,7 +245,12 @@ python make_figures.py
 
 ## Limitations
 
-- No accuracy results yet; see Results.
+- Noisy test estimate: the grouped test and validation sets differ by 0.105
+  mAP50 for the same model. Grouped k-fold cross-validation would give a steadier
+  estimate.
+- The leakage effect is not measured directly. Evaluating the official model
+  separately on test images whose source appears in training and on those whose
+  source does not would measure it.
 - Appearance labels only: no mineral identification, OCR, segmentation or
   asbestos-content estimate.
 - Grouping by source name reduces leakage but cannot prove specimen-level
@@ -218,7 +272,7 @@ python make_figures.py
 | `make_figures.py` | README charts from saved reports |
 | `notebooks/train_colab.ipynb` | Full training and evaluation on a Colab or Kaggle GPU |
 | `tests/` | Label validation, grouping, matching and demo checks |
-| `reports/` | Data audit and execution check |
+| `reports/` | Data audit, execution check, and training and evaluation results |
 
 Model weights, downloaded images and training runs stay out of Git.
 

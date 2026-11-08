@@ -1,0 +1,82 @@
+{
+  "split": "val",
+  "images": 273,
+  "weights_sha256": "31d7fd836cd875578776586a02fdb9a461ef950d4b9c84d9e62bb1392a996a8f",
+  "data_yaml_sha256": "cc120b2961494725870ef4f2d599e9a3cca941701fa1c8944ce2581b9c5829b9",
+  "settings": {
+    "weights": "/content/drive/MyDrive/asbestos_runs/grouped.pt",
+    "data": "asbestos/grouped/data.yaml",
+    "thresholds": [
+      0.1,
+      0.25,
+      0.4,
+      0.5,
+      0.6,
+      0.75
+    ],
+    "match_iou": 0.5,
+    "nms_iou": 0.7,
+    "imgsz": 640,
+    "max_det": 300,
+    "device": "0",
+    "output": "reports/results/grouped_val_thresholds.csv"
+  },
+  "matching": "class-aware, confidence-ordered, greedy IoU; micro counts",
+  "undefined_ratios": "reported as zero",
+  "rows": [
+    {
+      "confidence": 0.1,
+      "tp": 1308,
+      "fp": 1601,
+      "fn": 604,
+      "precision": 0.44963905122035064,
+      "recall": 0.6841004184100419,
+      "f1": 0.5426260112009955
+    },
+    {
+      "confidence": 0.25,
+      "tp": 1164,
+      "fp": 675,
+      "fn": 748,
+      "precision": 0.632952691680261,
+      "recall": 0.608786610878661,
+      "f1": 0.620634497467342
+    },
+    {
+      "confidence": 0.4,
+      "tp": 1023,
+      "fp": 364,
+      "fn": 889,
+      "precision": 0.7375630857966835,
+      "recall": 0.5350418410041841,
+      "f1": 0.6201879357381025
+    },
+    {
+      "confidence": 0.5,
+      "tp": 924,
+      "fp": 243,
+      "fn": 988,
+      "precision": 0.7917737789203085,
+      "recall": 0.48326359832635984,
+      "f1": 0.600194868463787
+    },
+    {
+      "confidence": 0.6,
+      "tp": 808,
+      "fp": 157,
+      "fn": 1104,
+      "precision": 0.8373056994818653,
+      "recall": 0.4225941422594142,
+      "f1": 0.5616962113312479
+    },
+    {
+      "confidence": 0.75,
+      "tp": 548,
+      "fp": 50,
+      "fn": 1364,
+      "precision": 0.9163879598662207,
+      "recall": 0.28661087866108786,
+      "f1": 0.4366533864541832
+    }
+  ]
+}

@@ -103,12 +103,14 @@ def audit_figures(audit, out):
 
 
 def results_figure(grouped, official, out):
-    """Per-class AP50 on each split's own test set: grouped (honest) vs official (leaky)."""
+    """Per-class AP50 on each split's own test set: leakage-reduced vs official."""
     runs = [("Grouped split (leakage-reduced)", grouped), ("Official RF100 split", official)]
     ap = [{row["class"]: row["map50"] for row in run["per_class"]} for _, run in runs]
+    _, name = max((ap[1][c] - ap[0][c], c) for c in CLASS_NAMES if c in ap[0] and c in ap[1])
+    title = f"Test AP50 by class: largest gap is {name}, {ap[0][name]:.2f} grouped vs {ap[1][name]:.2f} official"
     paths = []
     for theme in THEMES:
-        fig, ax, t, h = figure(theme, "Per-class mAP50 on each split's own test set",
+        fig, ax, t, h = figure(theme, title,
                             "AP at IoU 0.5. The test sets differ, so a gap is a warning sign, not a measurement",
                             len(CLASS_NAMES), top_px=100)
         ax.set_xlim(0, 1)

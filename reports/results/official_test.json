@@ -1,0 +1,42 @@
+{
+  "split": "test",
+  "weights_sha256": "8b5956ef421c85d5b7b5859c43684c4c080a6da07be8ea43a005f2293325e326",
+  "data_yaml_sha256": "4abfc878953b0dcc3ecdd98442ffe0e6175466c000134667b97cf324828e0c97",
+  "settings": {
+    "weights": "/content/drive/MyDrive/asbestos_runs/official.pt",
+    "data": "asbestos/data.local.yaml",
+    "split": "test",
+    "imgsz": 640,
+    "batch": 8,
+    "device": "0",
+    "output": "reports/results/official_test.json"
+  },
+  "ultralytics_version": "8.4.202",
+  "map50": 0.6220548769820461,
+  "map50_95": 0.406277684628132,
+  "precision_at_best_f1": 0.6392269419902131,
+  "recall_at_best_f1": 0.5848483691698472,
+  "per_class": [
+    {
+      "class": "thick-dark-mark",
+      "map50": 0.8497014505231755,
+      "map50_95": 0.5621885970252511
+    },
+    {
+      "class": "thick-light-mark",
+      "map50": 0.6706916970089387,
+      "map50_95": 0.4055405749742246
+    },
+    {
+      "class": "thin-dark-mark",
+      "map50": 0.6310693129411507,
+      "map50_95": 0.438835942899028
+    },
+    {
+      "class": "thin-light-mark",
+      "map50": 0.33675704745491963,
+      "map50_95": 0.21854562361402413
+    }
+  ],
+  "note": "Summary precision/recall use Ultralytics best-F1 operating point. Use threshold_sweep.py for fixed-threshold micro precision/recall."
+}
