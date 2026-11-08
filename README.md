@@ -82,8 +82,8 @@ classes, which is why evaluation reports AP per class, not only an average.
 ## Results
 
 **Pending full training.** No model has been fully trained yet, so there are no
-accuracy numbers to report. The [Colab notebook](notebooks/train_colab.ipynb)
-runs the whole experiment and produces these:
+accuracy numbers to report. The [training notebook](notebooks/train_colab.ipynb)
+runs the whole experiment on a free Colab or Kaggle GPU and produces these:
 
 | Trained and tested on | Test mAP50 | Test mAP50-95 |
 | --- | --- | --- |
@@ -102,11 +102,13 @@ demo check has not been re-run. All 12 unit tests pass.
 
 ## Run it
 
-### On Colab (recommended)
+### On Colab or Kaggle (recommended)
 
 Open the notebook with the badge above, choose a **T4 GPU**, and run the cells in
 order. Checkpoints and results are saved to Google Drive, and a resume cell
-covers disconnects.
+covers disconnects. The same notebook runs on Kaggle: upload it, choose a GPU T4
+accelerator, turn Internet on and use **Save & Run All**; results are saved in
+the notebook's Output.
 
 ### Locally
 
@@ -214,7 +216,7 @@ python make_figures.py
 | `threshold_sweep.py`, `detection_metrics.py` | Fixed-threshold precision, recall and F1 |
 | `app.py` | Local Gradio review demo |
 | `make_figures.py` | README charts from saved reports |
-| `notebooks/train_colab.ipynb` | Full training and evaluation on a Colab GPU |
+| `notebooks/train_colab.ipynb` | Full training and evaluation on a Colab or Kaggle GPU |
 | `tests/` | Label validation, grouping, matching and demo checks |
 | `reports/` | Data audit and execution check |
 
