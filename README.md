@@ -146,8 +146,7 @@ records the checkpoint hash, data config hash, split and settings;
 settings and library versions. An earlier
 [one-epoch CPU run](reports/verification.json) on a tiny subset at commit
 `f324361` checked training, evaluation, the threshold sweep and the demo end to
-end. The demo's color handling was fixed afterwards; unit tests cover the fix,
-but the demo has not yet been run with the trained model. All 12 unit tests pass.
+end. The demo's color handling was fixed afterwards; unit tests cover the fix. All 12 unit tests pass.
 
 ## Run it
 
